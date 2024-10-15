@@ -12,18 +12,21 @@ import pandas as pd
 import plotly.graph_objs as go
 
 
-df =pd.read_excel("RELATORIOS.xlsx",sheet_name='FROTA ANO A ANO')
-
+df =pd.read_excel("RELATORIOS.xlsx",sheet_name='FROTA ATUAL')
+df.columns = df.iloc[0]
+df = df[df['Município']!= 'TOTAL DE VEÍCULOS DO ESTADO DO AMAPÁ: ']
+#apagar a linhas que tinha o nome das colunas
+df.drop(0, axis=0, inplace= True)
 # Inicializando a aplicação Dash
 app = dash.Dash(__name__)
 
 # Layout da aplicação
 app.layout = html.Div(children=[
-    html.H1(children='Quantidade de Veículos por Ano'),
+    html.H1(children='Quantidade de Veículos por município em 2024'),
 
     dcc.Graph(
-        id='grafico-veiculos',
-        figure=px.bar(df, x='ANO', y='Quantidade de veículos', title='Quantidade de veículos',color='Quantidade de veículos', color_discrete_sequence=px.colors.qualitative.Set1)
+        id='FROTA ATUAL',
+        figure=px.bar(df, x='Município', y='Quantidade de veículos', title='Quantidade de veículos por município',color='Quantidade de veículos', color_discrete_sequence=px.colors.qualitative.Set1)
     )
 ])
 
