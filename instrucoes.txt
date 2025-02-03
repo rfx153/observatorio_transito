@@ -4,3 +4,9 @@ criei um branch chamado fevereiro
 
 
 estou instalando arquivos para funcionar o dash
+o que podemos melhorar
+melhorar a interface gráfica dos sites;
+#criei uma nova branch chamada de reestilização
+git checkout <nome-da-branch>
+
+#adiconar outros dados
