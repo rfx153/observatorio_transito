@@ -42,9 +42,11 @@ with open(image_path, 'rb') as f:
 
 app.layout = html.Div(
     children=[
-    #imagem
-    html.Img(src=f'data:image/png;base64,{encoded_image}', style={'width': '50%'}),
-    html.H1(['OBSERVATÓRIO DE TRÂNSITO DETRAN AP']),
+    # Imagem e título
+    html.Div([
+        html.Img(src=f'data:image/png;base64,{encoded_image}', style={'width': '20%', 'display': 'block', 'margin-left': 'auto', 'margin-right': 'auto'}),
+        html.H1('OBSERVATÓRIO DE TRÂNSITO DETRAN AP', style={'textAlign': 'center'}),
+    ]),
     #veículos por município
     html.Div([html.H1(children='Quantidade de Veículos por município em 2024'),
     dcc.Graph(

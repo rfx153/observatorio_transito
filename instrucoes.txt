@@ -1,2 +1,6 @@
 #estou testando agora no aquivo varios_arquivos.py
+#sincronizando com a base de dados do github
+criei um branch chamado fevereiro
 
+
+estou instalando arquivos para funcionar o dash
