@@ -45,6 +45,7 @@ app.layout = html.Div(
     #imagem
     html.Img(src=f'data:image/png;base64,{encoded_image}', style={'width': '50%'}),
     html.H1(['OBSERVATÓRIO DE TRÂNSITO DETRAN AP']),
+    #veículos por município
     html.Div([html.H1(children='Quantidade de Veículos por município em 2024'),
     dcc.Graph(
         id='FROTA ATUAL',
@@ -55,7 +56,7 @@ app.layout = html.Div(
     
 ]),
    
-                 
+    #veículos por ano             
     html.Div([
     html.H1(children='Quantidade de Veículos por Ano'),
     dcc.Graph(
@@ -63,6 +64,7 @@ app.layout = html.Div(
         figure=px.bar(df, x='ANO', y='Quantidade de veículos', title='Quantidade de veículos',color='Quantidade de veículos', color_discrete_sequence=px.colors.qualitative.Set1)
     )
 ]),
+    #condutores por ano
     html.Div(children=[
     html.H1(children='Quantidade de condutores por ano no estado do amapá'),
 
@@ -71,6 +73,15 @@ app.layout = html.Div(
         figure=px.bar(df2, x='Ano', y='Quantidade de Condutores', title='Quantidade de condutores no estado do amapá',color='Quantidade de Condutores', color_discrete_sequence=px.colors.qualitative.Set1)
     )
 ]),
+    #infrações cometidas por ano
+html.Div(children=[
+    html.H1(children='Quantidade de infrações cometidas por ano no estado do amapá'),
+
+    dcc.Graph(
+        id='grafico-infracoes',
+        figure=px.bar(df3, x='ANO', y='TOTAL DE INFRAÇÕES', title='Quantidade de infrações por ano no estado do amapá',color='TOTAL DE INFRAÇÕES', color_discrete_sequence=px.colors.qualitative.Set1)
+    )
+]),  
     
 
 
