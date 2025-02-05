@@ -50,17 +50,21 @@ app.layout = html.Div(
             html.Img(src=f'data:image/png;base64,{encoded_image}', style={'width': '20%', 'display': 'block', 'margin-left': 'auto', 'margin-right': 'auto'}),
             html.H1('OBSERVATÓRIO DE TRÂNSITO', style={'textAlign': 'center', 'color': '#333'}),
         ]),
+        
         # Índice
         html.Div([
             html.H2('Índice', style={'textAlign': 'center', 'color': '#555'}),
             html.Ul([
-                html.Li(html.A('Introdução', href='#introducao')),
-                html.Li(html.A('Quantidade de Veículos por Município em 2024', href='#veiculos-municipio')),
-                html.Li(html.A('Quantidade de Veículos por Ano', href='#veiculos-ano')),
-                html.Li(html.A('Quantidade de Condutores por Ano no Estado do Amapá', href='#condutores-ano')),
-                html.Li(html.A('Quantidade de Infrações Cometidas por Ano no Estado do Amapá', href='#infracoes-ano')),
+            html.Li(html.A('Introdução', href='#introducao')),
+            html.Li(html.A('Quantidade de Veículos por Município em 2024', href='#veiculos-municipio')),
+            html.Li(html.A('Quantidade de Veículos por Ano', href='#veiculos-ano')),
+            html.Li(html.A('Quantidade de Condutores por Ano no Estado do Amapá', href='#condutores-ano')),
+            html.Li(html.A('Quantidade de Infrações Cometidas por Ano no Estado do Amapá', href='#infracoes-ano')),
             ], style={'listStyleType': 'none', 'padding': 0, 'textAlign': 'center'})
         ], style={'margin': '20px 0'}),
+        
+        
+        
         # Introdução
         html.Div([
             html.H2('Introdução', id='introducao', style={'textAlign': 'center', 'color': '#555'}),
