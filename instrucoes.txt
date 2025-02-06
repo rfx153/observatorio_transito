@@ -10,3 +10,9 @@ melhorar a interface gráfica dos sites;
 git checkout <nome-da-branch>
 
 #adiconar outros dados
+
+falta
+#melhorar design da aplicação
+#adicionar um footer
+#colocar o valor do total no estado todo em todas as colunas
+#colocar textos

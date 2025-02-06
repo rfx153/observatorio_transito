@@ -8,7 +8,9 @@ import base64
 df = pd.read_excel("RELATORIOS.xlsx", sheet_name='FROTA ANO A ANO')
 df1 = pd.read_excel("RELATORIOS.xlsx", sheet_name='FROTA ATUAL')
 df1.columns = df1.iloc[0]
-df1 = df1[df1['Município'] != 'TOTAL DE VEÍCULOS DO ESTADO DO AMAPÁ: ']
+#esse df1_total serve para a tabela que tem uma linha a mais que é o total de veiculos do estado
+df1_total = df1
+df1_municipio = df1[df1['Município'] != 'TOTAL DE VEÍCULOS DO ESTADO DO AMAPÁ ']
 df1.drop(0, axis=0, inplace=True)
 
 df2 = pd.read_excel("RELATORIOS.xlsx", sheet_name='CONDUTORES POR ANO')
@@ -78,9 +80,9 @@ app.layout = html.Div([
             html.H2('Quantidade de Veículos por Município em 2024', id='veiculos-municipio', style={'textAlign': 'center', 'color': '#555'}),
             dcc.Graph(
                 id='FROTA ATUAL',
-                figure=px.pie(df1, values='Quantidade de veículos', names='Município', title='Quantidade de veículos por município')
+                figure=px.pie(df1_municipio, values='Quantidade de veículos', names='Município', title='Quantidade de veículos por município')
             ),
-            generate_table(df1)
+            generate_table(df1_total)
         ], style={'margin': '20px 0'}),
         
         # Veículos por ano
@@ -113,8 +115,18 @@ app.layout = html.Div([
             generate_table(df3)
         ], style={'margin': '20px 0'}),
         
-    ], style={'marginLeft': '270px', 'padding': '20px'})
+    ], style={'marginLeft': '270px', 'padding': '20px'}),
+    # Footer
+html.Div([
+    html.Hr(),
+    html.P('Desenvolvido por DTIC - DEPARTAMENTO ESTADUAL DE TRÂNSITO DO AMAPÁ', style={'textAlign': 'center', 'color': '#555'}),
+    html.P('Contato: cotec@detran.ap.gov.br', style={'textAlign': 'center', 'color': '#555'}),
+    html.P('© 2024 Todos os direitos reservados.', style={'textAlign': 'center', 'color': '#555'})
+], style={'marginTop': '50px', 'padding': '20px', 'backgroundColor': '#f9f9f9'})
+
 ])
+
+
 
 # Executando a aplicação
 if __name__ == '__main__':
